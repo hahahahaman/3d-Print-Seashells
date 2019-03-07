@@ -104,13 +104,13 @@ def k(a, b, ll, p, w1, w2, n):
 def h(a,b,ll,p,w1,w2,n):
     return ('((1.0 / (sqrt((cos(u)/%d)**2 + (sin(u)/%d)**2)))+' % (a,b)) + k(a,b,ll,p,w1,w2,n) + ')'
 
-def seashell(D=1, A=1, alpha=radians(82), beta=radians(2),
+def seashell(D=1, A=46, alpha=radians(82), beta=radians(2),
              mu=radians(1), omega=radians(10), phi=radians(-56),
              a=38, b=45, ll=0, p=0, w1=0, w2=0, n=0,
              range_u_min=0, range_u_max=2*pi, range_u_step=128,
              wrap_u=False, range_v_min=0, range_v_max=2*pi,
-             range_v_step=128, wrap_v=False, close_v=False):
-    rad = 'exp(v*(1/tan(%f)))/exp(2*pi*(1/tan(%f)))' % (alpha, alpha)
+             range_v_step=128, wrap_v=False, close_v=False, expo=2):
+    rad = 'exp(%f*v*(1/tan(%f)))*0.2' % (expo,alpha)
     x_eq = '%f*(%f*sin(%f)*cos(v)+%s*(cos(u+%f)*cos(v+%f) - sin(%f)*sin(u+%f)*cos(v+%f)))*%s' % (D, A, beta, h(a,b,ll,p,w1,w2,n), phi, omega, mu, phi, omega, rad)
     y_eq = '(-%f*sin(%f)*sin(v)-%s*(cos(u+%f)*sin(v+%f)+sin(%f)*sin(u+%f)*cos(v+%f)))*%s' % (A, beta, h(a,b,ll,p,w1,w2,n), phi, omega, mu, phi, omega, rad)
     z_eq = '(-%f * cos(%f)+%s*sin(u+%f)*cos(%f))*%s' % (A, beta, h(a,b,ll,p,w1,w2,n), phi, mu, rad)
@@ -133,6 +133,13 @@ def seashell(D=1, A=1, alpha=radians(82), beta=radians(2),
         wrap_v=wrap_v,
         close_v=close_v)
 
+def oliva():
+    seashell(D=1, A=7, alpha=radians(88), beta=radians(12),
+             mu=radians(0), omega=radians(0), phi=radians(78),
+             a=6, b=1.5, ll=0, p=0, w1=0, w2=0, n=0)
+
+def radix():
+    seashell(range_u_max=8.0, range_v_min=-4*pi, range_v_max=4*pi, A=26, expo=2, alpha=radians(87), beta=radians(12), mu=radians(10), omega=radians(0), phi=1.22, a=20, b=15, ll=0, p=0, w1=0, w2=0, n=0)
 
 '''
 bpy.ops.mesh.primitive_xyz_function_surface(
