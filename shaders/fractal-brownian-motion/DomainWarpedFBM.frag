@@ -1,74 +1,6 @@
-var program;
-
-function setup() {
-	pixelDensity(1);
-  createCanvas(852*2, 1103*2, WEBGL);
-	
-	gl = this.canvas.getContext('webgl');
-	
-	rectMode(CENTER);
-	noStroke();
-	fill(1);
-	
-	program = createShader(vert,frag);
-}
-
-function draw() {
-	shader(program);
-  background(0);
-	
-	program.setUniform('u_resolution', [width,height]);
-	program.setUniform('u_time', millis()/1000);
-	
-	rect(0,0, width,height);
-}
-
-var vert=`
-#ifdef GL_ES
-      precision highp float;
-      precision highp int;
-    #endif
-		#extension GL_OES_standard_derivatives : enable
-
-    // attributes, in
-    attribute vec3 aPosition;
-    attribute vec3 aNormal;
-    attribute vec2 aTexCoord;
-    attribute vec4 aVertexColor;
-
-    // attributes, out
-    varying vec3 var_vertPos;
-    varying vec4 var_vertCol;
-    varying vec3 var_vertNormal;
-    varying vec2 var_vertTexCoord;
-
-    // matrices
-    uniform mat4 uModelViewMatrix;
-    uniform mat4 uProjectionMatrix;
-    //uniform mat3 uNormalMatrix;
-
-    void main() {
-      gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
-
-      // just passing things through
-      // var_vertPos      = aPosition;
-      // var_vertCol      = aVertexColor;
-      // var_vertNormal   = aNormal;
-      // var_vertTexCoord = aTexCoord;
-    }
-`;
-
-var frag=`
-
-
-#ifdef GL_ES
-precision mediump float;
-#endif
+// https://www.shadertoy.com/view/wsjXzc
 
 #define PI 3.14159265359
-
-uniform vec2 iResolution;
-uniform float iTime;
 
 float random (in vec2 _st) {
     return fract(sin(dot(_st.xy,
@@ -153,9 +85,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ){
                 clamp(f*f*f,0.0,1.0));
 
     float cr = clamp(f3*f*(1.0-uv.x)*cos(uv.x), 0.0, 1.0);
-    float cg = 0.0;
+    float cg = 0.5;
     float cb = clamp(f2*f*cos(uv.x),0.0, 1.0);
 
     fragColor = vec4(vec3(cr,cg,cb)*0.6*color, 1.0);
 }
-`;
