@@ -1,4 +1,9 @@
-const float dt = 1.5;
+float k = 1. , 
+    r = 0.1, r0=5e-3, 
+    r_a = 0.1, r_b = 0., 
+    D_a = 4e-3, D_b = 0.0,
+    sigma = 0.012;
+float dt = 3.;
 
 #define PI 3.14159265359
 
@@ -10,6 +15,7 @@ float random (in vec2 _st) {
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
+
     const float _K0 = 1.;
     const float _K1 = 1.;
     const float _K2 = 1.;
@@ -39,37 +45,30 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec3 uv_se = texture(iChannel0, vUv+se).xyz;
 
     if (int(fragCoord.y) == 0) { // initialize first line
-        fragColor = 
-            vec4(step(random(fragCoord.xy), 0.),
-                 0.,
-                 0.,
-                 1.);
+        fragColor = vec4(step(random(fragCoord.xy), 0.), 0., 0., 1.);
         return;
     }
     
+    r *= 1. + 0.025*(2.*step(.5,random(fragCoord.xy))-1.);   // 2.5% fluctuation
+    sigma = .01+sigma*(.5+1.*sin(10.*PI*vUv.x));
+    
     // laplacian, represented by 3x3 convolution matrix
+    
     vec3 lapl  = _K0*uv + _K1*(uv_n + uv_e + uv_w + uv_s) +
         		 _K2*(uv_nw + uv_sw + uv_ne + uv_se);
     
     fragColor = vec4(uv_s, 0.);
     
-    vec3 lapl = uv_se + uv_sw - 2. * uv_s;
     
-    const float b_a = 0.01, b_b =0.04, 
-    			r_a = 0.1, r_b = 0., 
-    			D_a = 0.015, D_b = 0.05;
-
-	float sigma = r_a, sigma_a = 0.5;
-    
-    sigma = 0.1+sigma*(0.5+0.5*sin(20.*PI*vUv.x));
+    //vec3 lapl = uv_se + uv_sw + uv_w + uv_e - 4. * uv_s;
     
     float a = fragColor.x, b = fragColor.y, c = fragColor.z;
     
-    float a_star = a*a/(1. + sigma_a * a * a) + b_a;
-    float prod_a = sigma * b * a_star; // producation rate of substance a
-    float rhox = 0.6 + 0.5 * sin(vUv.x);
-    float da = prod_a - r_a * a + D_a * lapl.x;
-    float db = b_b * rhox  - prod_a - r_b * b + D_b * lapl.y;
+    float d = a*a/(1.+k*a*a);
+    float dd = r*b*(d + r0);
+        
+   	float da = dd - r_a * a + D_a * lapl.x;
+    float db = sigma - dd - r_b * b + D_b * lapl.y;
     float dc = 0.;
     
     fragColor += vec4(da, db, dc,0.) * dt;
