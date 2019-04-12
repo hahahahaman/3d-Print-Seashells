@@ -8,6 +8,18 @@ float random (in vec2 _st) {
         43758.5453123);
 }
 
+float superposed_sins(in vec2 _st){
+    float x = _st.x, y = _st.y;
+    float frequency = 20.;
+    float val = sin(x*frequency);
+    
+    val += sin(x*frequency*1.72);
+    val += sin(y*frequency*2.3);
+    //val += sin(x*frequency*3.12);
+	
+    return val;
+}
+
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     const float _K0 = 1.;
@@ -48,20 +60,23 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     }
     
     // laplacian, represented by 3x3 convolution matrix
-    vec3 lapl  = _K0*uv + _K1*(uv_n + uv_e + uv_w + uv_s) +
+    /*
+	vec3 lapl  = _K0*uv + _K1*(uv_n + uv_e + uv_w + uv_s) +
         		 _K2*(uv_nw + uv_sw + uv_ne + uv_se);
+    */
     
     fragColor = vec4(uv_s, 0.);
     
     vec3 lapl = uv_se + uv_sw - 2. * uv_s;
     
     const float b_a = 0.01, b_b =0.04, 
-    			r_a = 0.1, r_b = 0., 
+    			r_a = 0.07, r_b = 0.001, 
     			D_a = 0.015, D_b = 0.05;
 
 	float sigma = r_a, sigma_a = 0.5;
     
-    sigma = 0.1+sigma*(0.5+0.5*sin(20.*PI*vUv.x));
+    sigma = 0.1+sigma*(0.5+0.5*superposed_sins(vUv));
+    //sigma = 0.1+sigma*(0.5+0.5*sin(20.*PI*vUv.x));
     
     float a = fragColor.x, b = fragColor.y, c = fragColor.z;
     
@@ -69,9 +84,10 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     float prod_a = sigma * b * a_star; // producation rate of substance a
     float rhox = 0.6 + 0.5 * sin(vUv.x);
     float da = prod_a - r_a * a + D_a * lapl.x;
-    float db = b_b * rhox  - prod_a - r_b * b + D_b * lapl.y;
+    float db = b_b  - prod_a - r_b * b + D_b * lapl.y;
     float dc = 0.;
     
     fragColor += vec4(da, db, dc,0.) * dt;
     fragColor = max(fragColor, vec4(1e-5));
+    //fragColor = min(fragColor, vec4(1.0));
 }
