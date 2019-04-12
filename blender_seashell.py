@@ -139,7 +139,14 @@ def oliva():
              a=6, b=1.5, ll=0, p=0, w1=0, w2=0, n=0)
 
 def radix():
-    seashell(range_u_max=8.0, range_v_min=-4*pi, range_v_max=4*pi, A=26, expo=2, alpha=radians(87), beta=radians(12), mu=radians(10), omega=radians(0), phi=1.22, a=20, b=15, ll=0, p=0, w1=0, w2=0, n=0)
+    seashell(range_u_max=8.0, range_v_min=-4*pi, range_v_max=4*pi,
+             range_u_step = 512, range_v_step=512,
+             A=26, expo=2,
+             alpha=radians(87), beta=radians(12),
+             mu=radians(10), omega=radians(0),
+             phi=1.22, a=20, b=15,
+             ll=0, p=0, w1=0,
+             w2=0, n=0)
 
 '''
 bpy.ops.mesh.primitive_xyz_function_surface(
