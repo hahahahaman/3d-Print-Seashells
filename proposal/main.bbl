@@ -1,0 +1,55 @@
+\begin{thebibliography}{1}
+
+\bibitem{bachman-3dprinting}
+David Bachman.
+\newblock Modelling seashells.
+\newblock http://mathartblog.com/?p=257.
+\newblock Accessed: 2019-01-13.
+
+\bibitem{3dprinting-seashells}
+Francesco~De Comité.
+\newblock Modelling seashells shapes and pigmentation patterns: Experiments
+  with 3d printing.
+\newblock {\em Bridges 2017: Mathematics, Art, Music, Architecture, Education,
+  Culture}, 2017.
+
+\bibitem{Galbraith00modelingmurex}
+Callum Galbraith, Przemyslaw Prusinkiewicz, and Brian Wyvill.
+\newblock Modeling murex cabritii sea shell with a structured implicit modeler.
+\newblock 2000.
+
+\bibitem{fmgfb}
+Jaap Kaandorp.
+\newblock {\em Fractal Modelling Growth and Form in Biology}.
+\newblock Springer-Verlag, 1994.
+
+\bibitem{abss}
+Hans Meinhardt.
+\newblock {\em The Algorithmic Beauty of Sea Shells}.
+\newblock Springer-Verlag, 2009.
+
+\bibitem{Turk:1991:GTA:127719.122749}
+Greg Turk.
+\newblock Generating textures on arbitrary surfaces using reaction-diffusion.
+\newblock {\em SIGGRAPH Comput. Graph.}, 25(4):289--298, July 1991.
+
+\bibitem{VANDERHELM1998505}
+Aadjan van~der Helm, Peter Ebell, and Willem~F. Bronsvoort.
+\newblock Modelling mollusc shells with generalized cylinders.
+\newblock {\em Computers and Graphics}, 22(4):505 -- 513, 1998.
+
+\bibitem{wikipedia-chicoreus}
+{Wikipedia, the free encyclopedia}.
+\newblock Chicoreus palmarosae.
+\newblock
+  https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Chicoreus_palmarosae.jpg/266px-Chicoreus_palmarosae.jpg.
+\newblock Accessed: 2019-01-13.
+
+\bibitem{wikipedia-hexaplex}
+{Wikipedia, the free encyclopedia}.
+\newblock Hexaplex radix.
+\newblock
+  https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Hexaplex_radix_01.jpg/1200px-Hexaple\_radix_01.jpg.
+\newblock Accessed: 2019-01-13.
+
+\end{thebibliography}
