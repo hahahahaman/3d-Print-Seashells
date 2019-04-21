@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.21)  21 APR 2019 16:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.21)  21 APR 2019 17:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -819,59 +819,52 @@ Package pdftex.def Info: ./img/ShellPeriwinkle.png  used on input line 158.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./img/modified_torus_blender.png, id=161, 145.2627pt x 97.3236pt>
+[4 <./img/torus.png>]
+<./img/modified_torus_blender.png, id=170, 145.2627pt x 97.3236pt>
 File: ./img/modified_torus_blender.png Graphic file (type png)
 <use ./img/modified_torus_blender.png>
 Package pdftex.def Info: ./img/modified_torus_blender.png  used on input line 1
-67.
+69.
 (pdftex.def)             Requested size: 246.94551pt x 165.44936pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./img/printed_modified_torus.jpg, id=162, 501.875pt x 669.50125pt>
+ [5 <./img/ShellPeriwinkle.png> <./img/modified_torus_blender.png (PNG copy)>]
+<./img/printed_modified_torus.jpg, id=177, 500.87125pt x 463.7325pt>
 File: ./img/printed_modified_torus.jpg Graphic file (type jpg)
 <use ./img/printed_modified_torus.jpg>
 Package pdftex.def Info: ./img/printed_modified_torus.jpg  used on input line 1
-77.
-(pdftex.def)             Requested size: 150.56366pt x 200.85191pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./img/hexaplex_radix_sine.jpg, id=164, 192.72pt x 131.49126pt>
+81.
+(pdftex.def)             Requested size: 250.435pt x 231.86568pt.
+ [6 <./img/printed_modified_torus.jpg>]
+<./img/hexaplex_radix_sine.jpg, id=184, 192.72pt x 131.49126pt>
 File: ./img/hexaplex_radix_sine.jpg Graphic file (type jpg)
 <use ./img/hexaplex_radix_sine.jpg>
-Package pdftex.def Info: ./img/hexaplex_radix_sine.jpg  used on input line 196.
+Package pdftex.def Info: ./img/hexaplex_radix_sine.jpg  used on input line 204.
 
 (pdftex.def)             Requested size: 192.71951pt x 131.49092pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4 <./img/torus.png>] (./3d-print-seashells-final-report.bbl
+(./3d-print-seashells-final-report.bbl
 (/usr/share/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
-) [5 <./img/ShellPeriwinkle.png> <./img/modified_torus_blender.png (PNG copy)>]
-
+)
 Overfull \hbox (140.67673pt too wide) in paragraph at lines 47--52
 []\T1/cmr/m/n/10 Wikipedia, the free en-cy-clo-pe-dia.  Hexaplex radix.  https:
 //upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Hexaplex_-
  []
 
-) [6 <./img/printed_modified_torus.jpg> <./img/hexaplex_radix_sine.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
-
-(./3d-print-seashells-final-report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
+) [7 <./img/hexaplex_radix_sine.jpg>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 224.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 224.
+ (./3d-print-seashells-final-report.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 224.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 224.
 Package rerunfilecheck Info: File `3d-print-seashells-final-report.out' has not
  changed.
 (rerunfilecheck)             Checksum: D82AF47B64175154A8C8005D4850832D;733.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 224.
  ) 
 Here is how much of TeX's memory you used:
- 19231 strings out of 492616
- 348543 string characters out of 6135177
- 443776 words of memory out of 5000000
+ 19233 strings out of 492616
+ 348561 string characters out of 6135177
+ 443846 words of memory out of 5000000
  22725 multiletter control sequences out of 15000+600000
  15121 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -893,10 +886,10 @@ r/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb>
 mf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/t
 ype1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
 super/sfti1000.pfb>
-Output written on 3d-print-seashells-final-report.pdf (6 pages, 769955 bytes).
+Output written on 3d-print-seashells-final-report.pdf (7 pages, 803473 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 205 compressed objects within 3 object streams
- 45 named destinations out of 1000 (max. 500000)
+ 268 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
  250 words of extra memory for PDF output out of 10000 (max. 10000000)
 

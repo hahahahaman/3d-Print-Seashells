@@ -124,19 +124,19 @@ Two kinds of parametric equations will be discussed: the first is modified torus
 
 The parametric equation for a torus is:
 
-\[ 
-\begin{cases}
-	x = (c + a \cdot cos(v)) cos(u)\\
-	y = (c + a \cdot cos(v)) sin(u)\\
-	z = a \cdot sin(v)\\
-\end{cases}
-\]
+\begin{equation}
+	\begin{cases}
+		x = (c + a \cdot cos(v)) cos(u)\\
+		y = (c + a \cdot cos(v)) sin(u)\\
+		z = a \cdot sin(v)\\
+	\end{cases}
+\end{equation}
 
 for $u,v \in  [0, 2\pi)$.
 
 \begin{figure}[h]
 	\centering\includegraphics[scale=0.3]{./img/torus.png}
-	\caption{Raytraced torus.}
+	\caption{Raytraced torus using equation 5.}
 	\label{torus} % Unique label used for referencing the figure in-text
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
@@ -152,33 +152,41 @@ A simple way to create models resembling sea shells is to form a linear spiral t
 	\end{cases}
 \end{equation}
 
-Where $H$ is the height and $N$ is the number of turns of the spiral. $w(u)$ ensures that the spiral grows linearly from $0$ to $1$, and is used quadratically so that it doesn't grow too quickly downward.
+Where $H$ is the height and $N$ is the number of turns of the spiral. $w(u)$ ensures that the spiral grows linearly from $0$ to $1$, and is used quadratically in the $z$ parameter, so that the height doesn't grow too quickly downward.
 
 \begin{figure}[h]
 	\centering\includegraphics[scale=0.3]{./img/ShellPeriwinkle.png}
-	\caption{Periwinkle shell using equation 5, where $a = 1$, $c = 1$, $N = 4.6$ and $H = 2$. \cite{povray-seashells}}
+	\caption{Periwinkle shell using equation 6, where $a = 1$, $c = 1$, $N = 4.6$ and $H = 2$. \cite{povray-seashells}}
 	\label{periwinkle} % Unique label used for referencing the figure in-text
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
 
-In blender using a XYZ Math Surface this model was created with the Solidify modifier:
+\pagebreak
+
+In blender using a XYZ Math Surface (parametric surface) and the modified torus equation, this model was created with the Solidify modifier:
 
 \begin{figure}[h]
 	\centering\includegraphics[scale=1.7]{./img/modified_torus_blender.png}
-	\caption{XYZ Math Surface in blender.}
+	\caption{Solidified XYZ Math Surface in blender. Exported as \textit{modified\_torus.stl}.
+	}
 	\label{blender-modified-torus} % Unique label used for referencing the figure in-text
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
 
+\pagebreak
 
 Then it was 3-D printed.
 
 \begin{figure}[h]
-	\centering\includegraphics[scale=0.3]{./img/printed_modified_torus.jpg}
-	\caption{Solidified XYZ Math Surface.}
+	\centering\includegraphics[scale=0.5]{./img/printed_modified_torus.jpg}
+	\caption{Printed from \textit{modified\_torus.stl}.}
 	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
+
+
+
+\pagebreak
 
 \subsection{Generating Curve} 
 
