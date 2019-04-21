@@ -4,7 +4,6 @@
 David Bachman.
 \newblock Modelling seashells.
 \newblock http://mathartblog.com/?p=257.
-\newblock Accessed: 2019-01-13.
 
 \bibitem{3dprinting-seashells}
 Francesco~De Comité.
@@ -23,6 +22,12 @@ Hans Meinhardt.
 \newblock {\em The Algorithmic Beauty of Sea Shells}.
 \newblock Springer-Verlag, 2009.
 
+\bibitem{JORGEPICADO}
+Jorge Picado.
+\newblock Seashells: the plainness and beauty of their mathematical
+  description.
+\newblock http://www.mat.uc.pt/~picado/conchas/eng/article.pdf.
+
 \bibitem{Turk:1991:GTA:127719.122749}
 Greg Turk.
 \newblock Generating textures on arbitrary surfaces using reaction-diffusion.
@@ -32,6 +37,11 @@ Greg Turk.
 Aadjan van~der Helm, Peter Ebell, and Willem~F. Bronsvoort.
 \newblock Modelling mollusc shells with generalized cylinders.
 \newblock {\em Computers and Graphics}, 22(4):505 -- 513, 1998.
+
+\bibitem{logspiral}
+Eric Weisstein.
+\newblock Logarithmic spiral.
+\newblock http://mathworld.wolfram.com/LogarithmicSpiral.html.
 
 \bibitem{wikipedia-hexaplex}
 {Wikipedia, the free encyclopedia}.

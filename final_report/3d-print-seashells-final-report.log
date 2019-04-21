@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.21)  14 APR 2019 08:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.3.21)  20 APR 2019 16:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -775,53 +775,96 @@ LaTeX Info: Redefining \nameref on input line 29.
 \@outlinefile=\write4
 \openout4 = `3d-print-seashells-final-report.out'.
 
-<./img/hexaplex_radix.jpg, id=39, 1204.5pt x 818.05624pt>
+(./3d-print-seashells-final-report.toc)
+\tf@toc=\write5
+\openout5 = `3d-print-seashells-final-report.toc'.
+
+<./img/hexaplex_radix.jpg, id=94, 1204.5pt x 818.05624pt>
 File: ./img/hexaplex_radix.jpg Graphic file (type jpg)
 <use ./img/hexaplex_radix.jpg>
-Package pdftex.def Info: ./img/hexaplex_radix.jpg  used on input line 47.
+Package pdftex.def Info: ./img/hexaplex_radix.jpg  used on input line 49.
 (pdftex.def)             Requested size: 301.12427pt x 204.51355pt.
-(./3d-print-seashells-final-report.bbl [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/hexaplex_radix.jpg>]
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<./img/logarithmic-spiral.png, id=116, 293.095pt x 216.81pt>
+File: ./img/logarithmic-spiral.png Graphic file (type png)
+<use ./img/logarithmic-spiral.png>
+Package pdftex.def Info: ./img/logarithmic-spiral.png  used on input line 72.
+(pdftex.def)             Requested size: 205.16508pt x 151.76596pt.
+ [2 <./img/hexaplex_radix.jpg> <./img/logarithmic-spiral.png>]
+<./img/logspiral.png, id=131, 803.0pt x 602.25pt>
+File: ./img/logspiral.png Graphic file (type png)
+<use ./img/logspiral.png>
+Package pdftex.def Info: ./img/logspiral.png  used on input line 96.
+(pdftex.def)             Requested size: 240.90186pt x 180.67639pt.
+<./img/logspiral_noise.png, id=132, 803.0pt x 602.25pt>
+File: ./img/logspiral_noise.png Graphic file (type png)
+<use ./img/logspiral_noise.png>
+Package pdftex.def Info: ./img/logspiral_noise.png  used on input line 109.
+(pdftex.def)             Requested size: 240.90186pt x 180.67639pt.
+ (./3d-print-seashells-final-report.bbl
+[3 <./img/logspiral.png> <./img/logspiral_noise.png>]
 (/usr/share/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-Overfull \hbox (135.67795pt too wide) in paragraph at lines 37--42
+Overfull \hbox (135.67795pt too wide) in paragraph at lines 47--52
 []\T1/cmr/m/n/10 Wikipedia, the free en-cy-clo-pe-dia.  Hexaplex radix.  https:
 //upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Hexaplex_-
  []
 
-) [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 58.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 58.
+) [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 136.
  (./3d-print-seashells-final-report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 58.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 58.
-Package rerunfilecheck Info: File `3d-print-seashells-final-report.out' has not
- changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 58.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 136.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 136.
+
+
+Package rerunfilecheck Warning: File `3d-print-seashells-final-report.out' has 
+changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `3d-print-seashells-final-report.out
+':
+(rerunfilecheck)             Before: C6BDB6FDC3418BD18E64F18B774D3CA2;646
+(rerunfilecheck)             After:  AE54B504F33713739E63771D79681F44;646.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 136.
  ) 
 Here is how much of TeX's memory you used:
- 19125 strings out of 492616
- 346557 string characters out of 6135177
- 442117 words of memory out of 5000000
- 22664 multiletter control sequences out of 15000+600000
- 13115 words of font info for 34 fonts, out of 8000000 for 9000
+ 19189 strings out of 492616
+ 347584 string characters out of 6135177
+ 444418 words of memory out of 5000000
+ 22698 multiletter control sequences out of 15000+600000
+ 15121 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,7n,81p,900b,617s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,7n,81p,900b,620s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
-exmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf-dist/fonts
-/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/c
-m-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm100
-0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/f
-onts/type1/public/cm-super/sfti1000.pfb>
-Output written on 3d-print-seashells-final-report.pdf (2 pages, 313345 bytes).
+exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></us
+r/share/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf-d
+ist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1
+/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
+r/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb>
+</usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/tex
+mf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
+super/sfti1000.pfb>
+Output written on 3d-print-seashells-final-report.pdf (4 pages, 519517 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 114 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 227 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 217 words of extra memory for PDF output out of 10000 (max. 10000000)
 
