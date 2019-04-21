@@ -3,9 +3,10 @@
 \BOOKMARK [1][-]{section.2}{Implicit Surface}{}% 3
 \BOOKMARK [2][-]{subsection.2.1}{Logarithmic Spiral}{section.2}% 4
 \BOOKMARK [1][-]{section.3}{Parametric Equations}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{14 Parameters}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.2}{Processing}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.3}{Blender}{section.3}% 8
-\BOOKMARK [1][-]{section.4}{Reaction Diffusion Shaders}{}% 9
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 10
-\BOOKMARK [2][-]{subsection.5.1}{Future Work}{section.5}% 11
+\BOOKMARK [2][-]{subsection.3.1}{Modified Torus}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Generating Curve}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Processing}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Blender}{subsection.3.2}% 9
+\BOOKMARK [1][-]{section.4}{Reaction Diffusion Shaders}{}% 10
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 11
+\BOOKMARK [2][-]{subsection.5.1}{Future Work}{section.5}% 12

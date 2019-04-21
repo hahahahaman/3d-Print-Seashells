@@ -41,6 +41,8 @@ Sea shells have interesting patterns which  appear to be readily described by ma
 
 The motivation of this project will be to extend the methods of generating the exterior protrusions to be able to mimic a wider variety of shells. Prusinkiewicz and Fowler have modeled periodic ridge and bump patterns and they have also combined multiple generating curves to imitate more intricate shells \cite{abss}. Galbraith et al. have used constructive solid geometry (CSG) to compose different modules to generate a complete Murex Cabritii model. They have proposed the use of reaction-diffusion (RD) to place protrusions algorithmically \cite{Galbraith00modelingmurex}. Intuitively this appears to be a reasonable idea since the protrusion placement of certain shells are something like the placement of spots upon a leopard. Such patterns have already been described as textures using RD \cite{Turk:1991:GTA:127719.122749}.
 
+\pagebreak
+
 \subsection{Main Objective}
 
 An interesting candidate for such a method would be:
@@ -52,7 +54,7 @@ An interesting candidate for such a method would be:
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
 
-The main objective would be to create a model that closely resembles the shell and to 3D print it. After completing the main objective it may be possible to generalize the methods used to describe various other shells.
+The main objective would be to create a model that closely resembles the shell and to 3D print it.
 
 \section{Implicit Surface}
 
@@ -116,19 +118,97 @@ After fiddling around with this for a while it became apparent that the existing
 
 \section{Parametric Equations}
 
-In \cite{JORGEPICADO} a 14 parameter parametric equation is used to model sea shells.
+Two kinds of parametric equations will be discussed: the first is modified torus used in \cite{povray-seashells}, and the other is a logarithmic spiral with a generating curve used in \cite{JORGEPICADO}.
 
-\subsection{14 Parameters} 
+\subsection{Modified Torus}
 
-\subsection{Processing}
+The parametric equation for a torus is:
 
-\subsection{Blender}
+\[ 
+\begin{cases}
+	x = (c + a \cdot cos(v)) cos(u)\\
+	y = (c + a \cdot cos(v)) sin(u)\\
+	z = a \cdot sin(v)\\
+\end{cases}
+\]
+
+for $u,v \in  [0, 2\pi)$.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=0.3]{./img/torus.png}
+	\caption{Raytraced torus.}
+	\label{torus} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+A simple way to create models resembling sea shells is to form a linear spiral that grows downward as described in \cite{povray-seashells}. The basic equation used is:
+
+\begin{equation}
+	\begin{cases}
+		w(u) = \frac{u}{2\pi}\\
+		x = w(u) \cdot [c + a \cdot cos(v)] cos(N \cdot u)\\
+		y = w(u) \cdot [c + a \cdot cos(v)] sin(N \cdot u)\\
+		z = w(u) \cdot a \cdot sin(v) + H \cdot [w(u)]^2\\
+	\end{cases}
+\end{equation}
+
+Where $H$ is the height and $N$ is the number of turns of the spiral. $w(u)$ ensures that the spiral grows linearly from $0$ to $1$, and is used quadratically so that it doesn't grow too quickly downward.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=0.3]{./img/ShellPeriwinkle.png}
+	\caption{Periwinkle shell using equation 5, where $a = 1$, $c = 1$, $N = 4.6$ and $H = 2$. \cite{povray-seashells}}
+	\label{periwinkle} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+In blender using a XYZ Math Surface this model was created with the Solidify modifier:
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=1.7]{./img/modified_torus_blender.png}
+	\caption{XYZ Math Surface in blender.}
+	\label{blender-modified-torus} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+
+Then it was 3-D printed.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=0.3]{./img/printed_modified_torus.jpg}
+	\caption{Solidified XYZ Math Surface.}
+	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+\subsection{Generating Curve} 
+
+Here is a summary of the method, for a more detailed explanation see \cite{JORGEPICADO}.
+
+\subsubsection{Processing}
+
+\subsubsection{Blender}
 
 \section{Reaction Diffusion Shaders}
 
+In order to model the protrusion of hexaplex radix an RD texture was created. Notice from Figure X that on hexaplex radix the pattern of the protrusions seems to originate from some kind of sinusoidal shape.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=1.0]{./img/hexaplex_radix_sine.jpg}
+	\caption{Sinusoidal pattern on hexaplex radix.}
+	\label{hexaplex-sine} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+
+
+
 \section{Conclusion}
 
+Here is the final model in Blender:
+
 \subsection{Future Work}
+
+
 
 \bibliographystyle{plain}
 \bibliography{refs}

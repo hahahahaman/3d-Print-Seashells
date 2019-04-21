@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{bachman-3dprinting}
 David Bachman.
@@ -49,5 +49,9 @@ Eric Weisstein.
 \newblock
   https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Hexaplex_radix_01.jpg/1200px-Hexaple\_radix_01.jpg.
 \newblock Accessed: 2019-01-13.
+
+\bibitem{povray-seashells}
+Mike Williams.
+\newblock http://www.econym.demon.co.uk/isotut/shells.htm.
 
 \end{thebibliography}
