@@ -22,6 +22,11 @@ Hans Meinhardt.
 \newblock {\em The Algorithmic Beauty of Sea Shells}.
 \newblock Springer-Verlag, 2009.
 
+\bibitem{fbm}
+Jen~Lowe Patricio Ganzalez~Vivo.
+\newblock Fractal brownian motion.
+\newblock https://thebookofshaders.com/13/.
+
 \bibitem{JORGEPICADO}
 Jorge Picado.
 \newblock Seashells: the plainness and beauty of their mathematical
@@ -53,5 +58,15 @@ Eric Weisstein.
 \bibitem{povray-seashells}
 Mike Williams.
 \newblock http://www.econym.demon.co.uk/isotut/shells.htm.
+
+\bibitem{rd-fbm}
+Edward Ye.
+\newblock Reaction diffusion + fbm.
+\newblock https://www.shadertoy.com/view/tsjSz3.
+
+\bibitem{st-fbm}
+Edward Ye.
+\newblock Simple fbm.
+\newblock https://www.shadertoy.com/view/wdSXD3.
 
 \end{thebibliography}

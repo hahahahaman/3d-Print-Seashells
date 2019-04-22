@@ -184,13 +184,9 @@ Then it was 3-D printed.
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
 
-
-
-\pagebreak
-
 \subsection{Generating Curve} 
 
-Here is a summary of the method, for a more detailed explanation see \cite{JORGEPICADO}.
+Here is a summary of the generating curve method. For a more detailed explanation see \cite{JORGEPICADO}.
 
 \subsubsection{Processing}
 
@@ -207,12 +203,80 @@ In order to model the protrusion of hexaplex radix an RD texture was created. No
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
 
+The RD equation used is based on equation 2.4 from \cite{abss}, which uses an activator-inhibitor model.
 
+\begin{equation}
+	\frac{\partial a}{\partial t} = \sigma b a^{*2} - r_a a + D_a \frac{\partial^2 a }{\partial x^2}
+\end{equation}
+
+\begin{equation}
+	\frac{\partial b}{\partial t} = b_b - \sigma b a^{*2} + D_b \frac{\partial^2 b }{\partial x^2}
+\end{equation}
+
+\begin{equation*}
+	a^{*2} = \frac{a^2}{1+s_a a^2} + b_a
+\end{equation*}
+
+\begin{equation*}
+\sigma = \rho + r_a  [\tau + \nu \sum_{i=1}^{\eta}{sin(x \cdot rand())}]
+\end{equation*}
+
+$a$ represents the concentration of activator and $b$ represents the concentration of inhibitor. $\sigma b a^{*2}$ is the production rate for $a$, and $b_b$ is the production rate for $b$. $-r_a a$ is the depletion of $a$, and $-\sigma b a^{*2}$ is the depletion rate for $b$. $D_a \frac{\partial^2 a }{\partial x^2}$ is the exchange by diffusion. $\sigma$ is mainly a superposition of $sin$ waves to give the pattern a chaotic appearance. This produces a 1-D cellular automata, where the x-axis represents the position and the y-axis represents time.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=0.8]{./img/meinhardt-hexaplex-activator-inhibitor.png}
+	\caption{Image created from equations (7) and (8). Green value is inhibitor, red is activator. Each value is multiplied by the Fractal Brownian Motion shader. \cite{rd-fbm}}
+	\label{activator-inhibitor} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+Because the protrusion of hexaplex radix have a mountainous appearance, it seemed appropriate to try adding some fractal noise the final image. An addition shader was created which multiplies the values of the activator-inhibitor shader by fractal brownian motion (FBM) described in \cite{fbm}. It is difficult to notice in Figure X, because the RGB values are not clamp to 0 to 1 in the RD shader. Perhaps this should be changed in later attempts.
+
+\begin{figure}[h]
+\centering\includegraphics[scale=0.2]{./img/fbm.png}
+\caption{Fractal Brownian motion. \cite{st-fbm}}
+\label{fbm} % Unique label used for referencing the figure in-text
+%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=0.2]{./img/meinhardt-hexaplex.png}
+	\caption{Actual height map texture. Red activator value becomes the white color. }
+	\label{activator} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
 
 
 \section{Conclusion}
 
 Here is the final model in Blender:
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=1.0]{./img/hexaplex_quad.png}
+	\caption{Printed from \textit{modified\_torus.stl}.}
+	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+The UV mapping onto the texture:
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=1.25]{./img/uv_map.png}
+	\caption{Printed from \textit{modified\_torus.stl}.}
+	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+I think it looks better with height map inverted.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=1.0]{./img/hexaplex_quad_inverted.png}
+	\caption{Printed from \textit{modified\_torus.stl}.}
+	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
 
 \subsection{Future Work}
 
