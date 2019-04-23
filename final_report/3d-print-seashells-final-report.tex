@@ -30,7 +30,7 @@
 \maketitle
 
 \begin{abstract}
-	I thought sea shells were cool so I made some models and 3D printed them.
+	Sea shells are an intricate natural object that have been studied and modeled mathematically and computationally. With the advent of consumer 3-D printing, some recent work has gone into create realistic printed versions. This project has attempted to extend techniques of modeling sea shell protrusions, through reaction-diffusion textures, and to ultimately use 3-D printers to fabricate the concrete from the abstract. The techniques involved in generating models and textures are outlined.
 \end{abstract}
 
 \tableofcontents
@@ -136,7 +136,7 @@ for $u,v \in  [0, 2\pi)$.
 
 \begin{figure}[h]
 	\centering\includegraphics[scale=0.3]{./img/torus.png}
-	\caption{Raytraced torus using equation 5.}
+	\caption{Raytraced torus using equation (5).}
 	\label{torus} % Unique label used for referencing the figure in-text
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
@@ -186,15 +186,142 @@ Then it was 3-D printed.
 
 \subsection{Generating Curve} 
 
-Here is a summary of the generating curve method. For a more detailed explanation see \cite{JORGEPICADO}.
+The method used in this project is described in detail here \cite{JORGEPICADO}.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=0.5]{./img/generating_curve.png}
+	\caption{$H$ represents the spiral, $C$ the generating curve, which is an ellipse. \cite{JORGEPICADO}}
+	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+$H$ is a logarithmic spiral, which takes the polar form:
+
+\begin{equation}
+	H(\theta) = Ae^{\theta \cot \alpha}
+\end{equation}
+
+We get $H(u, v)$ by representing equation (7) in 3-D parametric form:
+
+\begin{equation}
+	H(u, v) = 
+	\begin{cases}
+		x = A sin(v) cos(u) e^{u \cot \alpha}\\
+		y = A sin(v) cos (u) e ^{u \cot \alpha}\\
+		z = -A cos(u) e^{u \cot \alpha}
+	\end{cases}
+\end{equation}
+
+\pagebreak
+
+The generating curve $C(u,v,s)$ is an ellipse, with semimajor axis $a$,  semiminor axis $b$, and angle $s$.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=1.5]{./img/generating_curve_ellipse.png}
+	\caption{Elliptical generating curve. \cite{JORGEPICADO}}
+	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+The parametric elliptical curve equation is:
+
+\begin{equation}
+	r_c(s) = \frac{ab}{[(a \cdot sin(s))^2 + (b \cdot cos(s))^2]^{0.5}}, 0 \le s \le 2\pi
+\end{equation}
+
+The width of the curve $C$ is increase as it spirals along $H$. It is assumed that this rate of growth is the same as $H$. So, we multiply equation (9) by the growth rate, in polar form:
+
+\begin{equation}
+	R_c(u, s) = r_c(s) e^{u \cot \alpha}
+\end{equation}
+
+In Cartesian form:
+
+\begin{equation}
+	C(u, s) = 
+	\begin{cases}
+		x(u, s) = cos(s) cos(u) \cdot r_c(s) \cdot e^{u \cot \alpha}\\
+		y(u, s) = cos(s) sin(u) \cdot r_c(s) \cdot e^{u \cot \alpha}\\
+		z(u, s) = sin(s) \cdot r_c(s) \cdot e^{u \cot \alpha}
+	\end{cases}
+\end{equation}
+
+To get the shell equation we add equations (8) and (11) together:
+
+\begin{equation}
+	\mathbf{S}(u,v,s) = H(u,v) + C(u, s) =
+	\begin{cases}
+		x = (A sin(v) cos(u) + cos(s) cos(u) \cdot r_c(s))  e^{u \cot \alpha}\\
+		y = (A sin(v) sin(u) + cos(s) sin(u) \cdot r_c(s))  e^{u \cot \alpha}\\
+		z = (-A cos(v) + sin(s) \cdot r_c(s))  e^{u \cot \alpha}
+	\end{cases}
+\end{equation}
+
+\pagebreak
+
+Then we also add the 3 axes of rotation for $C$.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=0.8]{./img/generating_curve_rot.png}
+	\caption{3 axes of rotation. \cite{JORGEPICADO}}
+	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+To get a large final equation:
+
+\begin{equation}
+\mathbf{S}'(u,v,s) =
+\begin{cases}
+	x = D[A sin(v) cos(u) + cos(s + \phi) cos(u + \Omega) \cdot r_c(s) - sin(\mu) sin(s + \phi) sin(u + \Omega)]  e^{u \cot \alpha}\\
+	y = [A sin(v) sin(u) + cos(s + \phi) sin(u + \Omega) \cdot r_c(s) + sin(\mu) sin(s + \phi) cos(u + \Omega) \cdot r_c(s)]  e^{u \cot \alpha}\\
+	z = [-A cos(v) + cos(\mu)sin(s + \phi) \cdot r_c(s)]  e^{u \cot \alpha}
+\end{cases}
+\end{equation}
+
+
+$D$ takes a value of 1 or -1, if the direction of coiling is either dextral or sinistral, respectively. The paper also presents some additional parameters for protrusions. Though they have been implemented in this project, they remained unused since the goal is to use RD textures for such purposes.
+
+\pagebreak
 
 \subsubsection{Processing}
+	
+Some time was spent trying to get an existing implementation of this equation to work. An existing project used Processing and was abandoned in 2012. It required porting to a new version of Processing and, though an attempt was made to improve it, it remained buggy. It was useful for gaining an intuition of the effect of different variables, but an implementation in Blender could replace all its features.
+	
+\begin{figure}[h]
+	
+	\centering\includegraphics[scale=0.3]{./img/seashell_generator.png}
+	\caption{Processing based sea shell generator.}
+	\label{activator-inhibitor} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
 
 \subsubsection{Blender}
 
+A python script, \textit{blender\_seashell.py},  was created to be used in Blender, which implemented equation (13). After fiddling with the parameters a shell was chosen that resembles hexaplex radix.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=1.25]{./img/hexaplex_shell.png}
+	\caption{Generated by \textit{blender\_seashell.py}.}
+	\label{activator-inhibitor} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+\pagebreak 
+
+Then it was 3-D printed.
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=0.05]{./img/hexaplex_printed.jpg}
+	\caption{Printed from \textit{radix\_shell\_only.stl}.}
+	\label{activator-inhibitor} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+
 \section{Reaction Diffusion Shaders}
 
-In order to model the protrusion of hexaplex radix an RD texture was created. Notice from Figure X that on hexaplex radix the pattern of the protrusions seems to originate from some kind of sinusoidal shape.
+In order to model the protrusion of hexaplex radix an RD texture was created. Notice from Figure 15 that on hexaplex radix the pattern of the protrusions seems to originate from some kind of sinusoidal shape.
 
 \begin{figure}[h]
 	\centering\includegraphics[scale=1.0]{./img/hexaplex_radix_sine.jpg}
@@ -230,7 +357,7 @@ $a$ represents the concentration of activator and $b$ represents the concentrati
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
 
-Because the protrusion of hexaplex radix have a mountainous appearance, it seemed appropriate to try adding some fractal noise the final image. An addition shader was created which multiplies the values of the activator-inhibitor shader by fractal brownian motion (FBM) described in \cite{fbm}. It is difficult to notice in Figure X, because the RGB values are not clamp to 0 to 1 in the RD shader. Perhaps this should be changed in later attempts.
+Because the protrusion of hexaplex radix have a mountainous appearance, it seemed appropriate to try adding some fractal noise to the final image. An additional shader was created which multiplies the values of the activator-inhibitor shader by the values of a fractal brownian motion (FBM) texture described in \cite{fbm}. It is difficult to notice in Figure 16, because the RGB values are not clamped to 0 to 1 in the RD shader. Perhaps this should be changed in later attempts.
 
 \begin{figure}[h]
 \centering\includegraphics[scale=0.2]{./img/fbm.png}
@@ -239,7 +366,7 @@ Because the protrusion of hexaplex radix have a mountainous appearance, it seeme
 %\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
 
-
+Then the activator concentration, red, was converted to the uniform RGB color of the height map texture. 
 
 \begin{figure}[h]
 	\centering\includegraphics[scale=0.2]{./img/meinhardt-hexaplex.png}
@@ -248,39 +375,56 @@ Because the protrusion of hexaplex radix have a mountainous appearance, it seeme
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
 
+\pagebreak
 
-\section{Conclusion}
 
-Here is the final model in Blender:
+\section{Putting It All Together}
+
+Everything was put together in Blender. The original shell model, seen in Figure 13, was modified so that all non-visible vertices and faces were removed. Then the height map RD texture was UV mapped to the shell. 
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=1.3]{./img/uv_map.png}
+	\caption{UV mapping of the texture onto the shell model--.}
+	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
+
+\pagebreak
+
+Here is the final model in Blender, with the Solidify modifier applied:
 
 \begin{figure}[h]
 	\centering\includegraphics[scale=1.0]{./img/hexaplex_quad.png}
-	\caption{Printed from \textit{modified\_torus.stl}.}
+	\caption{Final shell model. \textit{radix\_shell\_textured.stl} contains the geometry of the shell.}
 	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
 
-The UV mapping onto the texture:
-
-\begin{figure}[h]
-	\centering\includegraphics[scale=1.25]{./img/uv_map.png}
-	\caption{Printed from \textit{modified\_torus.stl}.}
-	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
-	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
-\end{figure}
-
-I think it looks better with height map inverted.
+I think it looks better with the height map inverted.
 
 \begin{figure}[h]
 	\centering\includegraphics[scale=1.0]{./img/hexaplex_quad_inverted.png}
-	\caption{Printed from \textit{modified\_torus.stl}.}
+	\caption{Inverted height map texture applied.}
 	\label{3d-printed-torus} % Unique label used for referencing the figure in-text
 	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
 \end{figure}
 
-\subsection{Future Work}
+Unfortunately I didn't get to printing the model.
 
+\section{Conclusion}
 
+The striking feature of this project was the change in 3-D modeling technology from the late 1990's. Graphics were likely mostly done using the CPU, so raytracing was dominated rather than meshes, and thus the early project related to creating sea shell models used raytracing techniques. In contrast, application such as Blender can do real-time modification to meshes, which allows for far quicker iteration on equation parameters. Modern tools are also quite general and widely available. It was probably quite a feat for Galbraith et al. to write a CSG library almost 2 decades ago, but modern applications comes with that functionality built in. The trickiest thing about this project hasn't been writing correct software, but rather finding the correct tools and learning how to use them.
+
+As can clearly be seen, there is quite a discrepancy between the intended goal in Figure 1, and the final model in Figure 20. Some small tweaks that may make the resemblance more alike would be to change equations (14) and (15), such that the $sin$ values of $\sigma$ have a higher frequency and smaller amplitude. Doing that in combination with improving the UV mapping such that it fit more correctly would likely improve the similarity between the model and the goal. RD equations can be somewhat unruly and I lack the mathematical dexterity to create new equations that might better model the actual behavior. The UV mapping is also kind of tricky and might require an artistic touch. Also mentioned earlier, it might be a good idea to try to clamp the RD texture's values to a maximum of 1, such that the FBM shader will be more apparent.
+
+Another interesting idea to model the protrusions is to use iterative fractal methods, which could be generalized to produce something like this:
+
+\begin{figure}[h]
+	\centering\includegraphics[scale=0.7]{./img/chicoreus_palmarosae.jpg}
+	\caption{Chicoreus palmarosae \cite{wikipedia-chicoreus}}
+	\label{fig:chicoreus_palmarosae} % Unique label used for referencing the figure in-text
+	%\addcontentsline{toc}{figure}{Figure \ref{fig:placeholder}} % Uncomment to add the figure to the table of contents
+\end{figure}
 
 \bibliographystyle{plain}
 \bibliography{refs}

@@ -9,45 +9,45 @@ I was expecting a `,' or a `}'---line 171 of file refs.bib
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Warning--empty journal in Galbraith00modelingmurex
-You've used 13 entries,
+You've used 14 entries,
             2118 wiz_defined-function locations,
-            563 strings with 5716 characters,
-and the built_in function-call counts, 3014 in all, are:
-= -- 282
-> -- 113
+            565 strings with 5848 characters,
+and the built_in function-call counts, 3209 in all, are:
+= -- 299
+> -- 120
 < -- 0
-+ -- 48
-- -- 34
-* -- 131
-:= -- 520
-add.period$ -- 39
-call.type$ -- 13
-change.case$ -- 55
++ -- 51
+- -- 36
+* -- 136
+:= -- 552
+add.period$ -- 41
+call.type$ -- 14
+change.case$ -- 59
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 110
-empty$ -- 289
-format.name$ -- 34
-if$ -- 637
+cite$ -- 15
+duplicate$ -- 117
+empty$ -- 311
+format.name$ -- 36
+if$ -- 680
 int.to.chr$ -- 0
-int.to.str$ -- 13
+int.to.str$ -- 14
 missing$ -- 6
-newline$ -- 68
-num.names$ -- 26
-pop$ -- 92
+newline$ -- 72
+num.names$ -- 28
+pop$ -- 98
 preamble$ -- 1
-purify$ -- 43
+purify$ -- 46
 quote$ -- 0
-skip$ -- 96
+skip$ -- 107
 stack$ -- 0
-substring$ -- 118
-swap$ -- 12
+substring$ -- 123
+swap$ -- 13
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 50
+type$ -- 54
 warning$ -- 1
-while$ -- 29
-width$ -- 15
-write$ -- 125
+while$ -- 31
+width$ -- 16
+write$ -- 132
 (There was 1 error message)
